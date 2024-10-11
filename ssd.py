@@ -37,7 +37,7 @@ class SSD(nn.Module):
         self.size = size
 
         # SSD network
-        #self.vgg = nn.ModuleList(base)
+        self.vgg = nn.ModuleList(base)
         # Define EMB
         self.emb_1 = EMB(256)
         self.emb_2 = EMB(512)

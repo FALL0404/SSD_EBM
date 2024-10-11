@@ -8,7 +8,7 @@ import torchvision.transforms as transforms
 import cv2
 import numpy as np
 
-COCO_ROOT = osp.join('/workspace/hongtae/ssd.pytorch', 'data/coco/')
+COCO_ROOT = osp.join('/content/SSD-EMB.Pytorch', 'data/coco/')
 IMAGES = 'images'
 ANNOTATIONS = 'annotations'
 COCO_API = 'PythonAPI'
@@ -89,7 +89,7 @@ class COCODetection(data.Dataset):
         sys.path.append(osp.join(root, COCO_API))
         from pycocotools.coco import COCO
         self.root = osp.join(root, IMAGES, image_set)
-        self.coco = COCO(osp.join(root, ANNOTATIONS,
+        self.coco = COCO(osp.join(root, 'annotations/annotations',
                                    INSTANCES_SET.format(image_set)))
         self.ids = list(self.coco.imgToAnns.keys())
         self.transform = transform
